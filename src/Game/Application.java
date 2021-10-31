@@ -1,7 +1,7 @@
 package Game;
 
-import Engine.GamePanel;
 import Keyboard.Keyboard;
+import Screen.ScreenManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class Application extends JFrame {
 
     public static Config config;
     private ThreadClock render, ticks;
-    private GamePanel gamePanel;
+    private ScreenManager screenManager;
     private static final Dimension GAME_DIMENSIONS;
 
     static {
@@ -22,7 +22,7 @@ public class Application extends JFrame {
 
     public Application() {
         super("TeaBlock");
-        setContentPane(gamePanel = new GamePanel());
+        setContentPane(screenManager = new ScreenManager());
         setSize(GAME_DIMENSIONS);
         setMinimumSize(GAME_DIMENSIONS);
         this.setVisible(true);
@@ -48,7 +48,7 @@ public class Application extends JFrame {
         ticks = new ThreadClock(0) {
             @Override
             public void function() {
-                gamePanel.update();
+                screenManager.update();
             }
         };
         render.start();
@@ -62,6 +62,7 @@ public class Application extends JFrame {
 
     private void paintComponent(Graphics g) {
         super.paintComponents(g);
+        screenManager.paintComponent(g);
     }
 
 
