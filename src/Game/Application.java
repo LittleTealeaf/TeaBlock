@@ -7,28 +7,31 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import Keyboard.KeyAction;
 
 public class Application extends JFrame {
 
     public static Config config;
     private ThreadClock render, ticks;
     private GamePanel gamePanel;
+    private static final Dimension GAME_DIMENSIONS;
 
     static {
         config = new Config();
+        GAME_DIMENSIONS = new Dimension(700,700);
     }
 
     public Application() {
         super("TeaBlock");
         setContentPane(gamePanel = new GamePanel());
-        setSize(700,700);
+        setSize(GAME_DIMENSIONS);
+        setMinimumSize(GAME_DIMENSIONS);
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(Keyboard.getKeyListener());
         addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
+                //Clears keys to keep persistent key presses
                 Keyboard.clearKeys();
             }
         });
