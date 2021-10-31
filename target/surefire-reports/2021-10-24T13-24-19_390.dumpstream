@@ -1,4 +1,0 @@
-# Created at 2021-10-24T13:24:20.799
-Boot Manifest-JAR contains absolute paths in classpath 'F:\Github\TeaBlock\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-
