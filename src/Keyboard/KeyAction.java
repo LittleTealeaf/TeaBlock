@@ -1,6 +1,6 @@
 package Keyboard;
 
-import Application.Application;
+import Application.App;
 import Util.StringFunctions;
 
 public enum KeyAction {
@@ -18,6 +18,6 @@ public enum KeyAction {
     }
 
     public boolean isDown() {
-        return Keyboard.isKeyBindsDown(Application.config.getBinds(this));
+        return Keyboard.isKeyBindsDown(App.config.getBinds(this));
     }
 }

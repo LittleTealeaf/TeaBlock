@@ -1,40 +1,64 @@
 package UI;
 
-import Application.Application;
 import Engine.Drawable;
-import Engine.Updatable;
 
 import java.awt.*;
-import java.util.Locale;
+import java.awt.geom.Rectangle2D;
 
 public class Text implements Drawable {
 
-    private String text;
-    private int[] loc;
-    private ColoredFont font;
-    private Scaler scaler;
+    protected String text;
+    protected Point position;
+    protected Font font;
+    protected Color color;
 
-    public Text(String text, ColoredFont font, int x, int y) {
+    public Text(String text, Font font, Color color) {
+        this(text,font,color,new Point(0,0));
+    }
+
+    public Text(String text, Font font, Color color, Point position) {
         this.text = text;
-        this.loc = new int[] {x,y};
+        this.position = position;
+        this.color = color;
         this.font = font;
     }
 
-    public Text(String text, ColoredFont font, Scaler scaler) {
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
         this.text = text;
+    }
+
+    public Point getPosition() {
+        return position;
+    }
+
+    public Font getFont() {
+        return font;
+    }
+
+    public void setFont(Font font) {
         this.font = font;
-        this.scaler = scaler;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        g.setFont(font);
-        g.setColor(font.getColor());
+        g.setFont(getFont());
+        g.setColor(getColor());
 
-        if(scaler != null) {
-            loc = scaler.scale(Application.instance.getWidth(),Application.instance.getHeight());
-        }
+        Point pos = getPosition();
+        Rectangle2D rect = g.getFontMetrics().getStringBounds(text,g);
 
-        g.drawString(text,loc[0],loc[1]);
+        g.drawString(text,(int) (pos.x - rect.getWidth() / 2),(int) (pos.y - rect.getHeight() / 2));
     }
 }

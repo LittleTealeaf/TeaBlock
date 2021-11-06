@@ -8,9 +8,9 @@ import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class Application extends JFrame {
+public class App extends JFrame {
 
-    public static Application instance;
+    public static App instance;
     public static Config config;
     private ThreadClock render, ticks;
     private ScreenManager screenManager;
@@ -21,7 +21,7 @@ public class Application extends JFrame {
         GAME_DIMENSIONS = new Dimension(700,700);
     }
 
-    public Application() {
+    public App() {
         super("TeaBlock");
         setContentPane(screenManager = new ScreenManager());
         setSize(GAME_DIMENSIONS);
@@ -57,7 +57,7 @@ public class Application extends JFrame {
     }
 
     public static void main(String... args) {
-        instance = new Application();
+        instance = new App();
     }
 
     private void paintComponent(Graphics g) {
@@ -65,12 +65,4 @@ public class Application extends JFrame {
         screenManager.paintComponent(g);
     }
 
-//    private static void registerFont(String font) {
-//        try {
-//            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-//            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT,Resources.getResource("/fonts/" + font)));
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
