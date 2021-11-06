@@ -14,15 +14,25 @@ public class MenuOption extends Text implements Drawable, Hitbox {
     private Color colorSelected;
     private Rectangle2D bounds;
     private HashMap<Direction,MenuOption> neighbors;
+    private ClickAction action;
 
     public MenuOption(String text, Font font, Color color, Color colorSelected) {
         this(text,font,color,colorSelected,new Point(0,0));
     }
 
+    public MenuOption(String text, Font font, Color color, Color colorSelected, ClickAction action) {
+        this(text,font,color,colorSelected,new Point(0,0),action);
+    }
+
     public MenuOption(String text, Font font, Color color, Color colorSelected, Point position) {
+        this(text,font,color,colorSelected,position,null);
+    }
+
+    public MenuOption(String text, Font font, Color color, Color colorSelected, Point position, ClickAction action) {
         super(text, font, color, position);
         this.colorSelected = colorSelected;
         neighbors = new HashMap<>();
+        this.action = action;
     }
 
     @Override
@@ -53,6 +63,12 @@ public class MenuOption extends Text implements Drawable, Hitbox {
         }
     }
 
+    public void click() {
+        if(action != null) {
+            action.execute();
+        }
+    }
+
     public void setNeighborItem(MenuOption menuOption, Direction direction) {
         neighbors.put(direction,menuOption);
     }
@@ -69,7 +85,7 @@ public class MenuOption extends Text implements Drawable, Hitbox {
         bounds.setRect(pos.x - bounds.getWidth() / 2, pos.y - bounds.getHeight() / 2, bounds.getWidth(), bounds.getHeight());
     }
 
-    public interface function {
+    public interface ClickAction {
         void execute();
     }
 }

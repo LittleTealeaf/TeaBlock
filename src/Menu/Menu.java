@@ -71,15 +71,33 @@ public class Menu extends Screen {
         mouseMoved(e);
     }
 
+    public void setSelected(MenuOption option) {
+        for(MenuOption menuOption : menuOptions) {
+            menuOption.setSelected(menuOption == option);
+        }
+    }
+
     @Override
     public void mouseMoved(MouseEvent e) {
         super.mouseMoved(e);
         try {
             for(MenuOption menuOption : menuOptions) {
-                menuOption.setSelected(menuOption.getBounds().contains(e.getPoint()));
+                if(menuOption.getBounds().contains(e.getPoint())) {
+                    setSelected(menuOption);
+                }
             }
         } catch(Exception exception) {
             System.out.println("Skipping mouse movement, not yet rendered");
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        super.mousePressed(e);
+        for(MenuOption menuOption : menuOptions) {
+            if(menuOption.getBounds().contains(e.getPoint())) {
+                menuOption.click();
+            }
         }
     }
 }
