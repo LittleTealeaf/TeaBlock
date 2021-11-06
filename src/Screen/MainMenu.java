@@ -9,7 +9,9 @@ public class MainMenu extends Menu {
 
     public MainMenu() {
         super();
-        drawables.add(new Text("Hello", 0, 100, Constants.FONT_MENU));
+        drawables.add(new Text("TeaCraft", Constants.FONT_MENU,(w,h) -> new int[] {
+                w / 2 - 300, h / 2 - 100
+        }));
         backgroundColor = new Color(118, 118, 208);
     }
 }
