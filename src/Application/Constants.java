@@ -4,10 +4,10 @@ import java.awt.*;
 import java.io.IOException;
 
 public class Constants {
-    public static final Font CUSTOM_MORTAL_ENGINES;
+    public static final Font FONT_MA;
 
     static {
-        CUSTOM_MORTAL_ENGINES = customFont("MortalEngines.ttf");
+        FONT_MA = customFont("MortalEngines.ttf");
     }
 
     private static Font customFont(String string) {

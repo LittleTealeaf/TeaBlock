@@ -35,6 +35,10 @@ public class Text implements Drawable {
         return position;
     }
 
+    public Point getPosition(Graphics g) {
+        return getPosition();
+    }
+
     public Font getFont() {
         return font;
     }
@@ -56,7 +60,7 @@ public class Text implements Drawable {
         g.setFont(getFont());
         g.setColor(getColor());
 
-        Point pos = getPosition();
+        Point pos = getPosition(g);
         Rectangle2D rect = g.getFontMetrics().getStringBounds(text,g);
 
         g.drawString(text,(int) (pos.x - rect.getWidth() / 2),(int) (pos.y - rect.getHeight() / 2));

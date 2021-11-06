@@ -1,19 +1,18 @@
 package Menu;
 
+import Engine.Drawable;
 import Screen.Screen;
-
-import java.util.List;
+import java.awt.event.MouseEvent;
 
 public class Menu extends Screen {
 
-    private List<MenuOption> menuOptions;
+    private MenuOption[] menuOptions;
 
     public Menu() {
         super();
-
     }
 
-    protected void setMenuItemsAsGrid(MenuOption[][] grid) {
+    protected void setMenuItems(MenuOption[][] grid) {
         int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -49,6 +48,38 @@ public class Menu extends Screen {
                     }
                 }
             }
+        }
+        menuOptions = new MenuOption[count];
+        int ind = 0;
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid.length; j++) {
+                if(grid[i][j] != null) {
+                    menuOptions[ind++] = grid[i][j];
+                }
+            }
+        }
+        drawables.add(g -> {
+            for(Drawable drawable : menuOptions) {
+                drawable.paintComponent(g);
+            }
+        });
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        super.mouseClicked(e);
+        mouseMoved(e);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        super.mouseMoved(e);
+        try {
+            for(MenuOption menuOption : menuOptions) {
+                menuOption.setSelected(menuOption.getBounds().contains(e.getPoint()));
+            }
+        } catch(Exception exception) {
+            System.out.println("Skipping mouse movement, not yet rendered");
         }
     }
 }

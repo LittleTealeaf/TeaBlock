@@ -1,27 +1,28 @@
 package Menu;
 
 import Engine.Drawable;
-import Engine.Updatable;
-import UI.Scaler;
+import Engine.Hitbox;
 import UI.Text;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.HashMap;
 
-public class MenuOption extends Text implements Drawable {
+public class MenuOption extends Text implements Drawable, Hitbox {
 
     private boolean selected = false;
     private Color colorSelected;
     private Rectangle2D bounds;
+    private HashMap<Direction,MenuOption> neighbors;
 
     public MenuOption(String text, Font font, Color color, Color colorSelected) {
-        super(text,font,color,new Point(0,0));
-        this.colorSelected = colorSelected;
+        this(text,font,color,colorSelected,new Point(0,0));
     }
 
     public MenuOption(String text, Font font, Color color, Color colorSelected, Point position) {
         super(text, font, color, position);
         this.colorSelected = colorSelected;
+        neighbors = new HashMap<Direction, MenuOption>();
     }
 
     @Override
@@ -45,18 +46,20 @@ public class MenuOption extends Text implements Drawable {
         this.colorSelected = colorSelected;
     }
 
-    public boolean inBounds(Point p) {
-        return bounds != null && bounds.contains(p);
-    }
-
     public void setNeighborItem(MenuOption menuOption, Direction direction) {
 
+    }
+
+    public Rectangle2D getBounds() {
+        return bounds;
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         bounds = g.getFontMetrics().getStringBounds(text,g);
+        Point pos = getPosition();
+        bounds.setRect(pos.x - bounds.getWidth() / 2, pos.y - bounds.getHeight() / 2, bounds.getWidth(), bounds.getHeight());
     }
 
     public interface function {
