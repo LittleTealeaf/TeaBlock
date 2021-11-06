@@ -26,7 +26,9 @@ public class MainMenu extends Menu {
 
         MenuOption[][] menuOptions = new MenuOption[][] {
                 {
-                        new MenuOption("Play", Constants.FONT_MA.deriveFont(30f), option, selected) {
+                        new MenuOption("Play", Constants.FONT_MA.deriveFont(30f), option, selected, () -> {
+                            System.out.println("Play Clicked");
+                        }) {
                             public Point getPosition() {
                                 return new Point(
                                         App.instance.getWidth() / 2 - 200, App.instance.getHeight() / 2 - 100

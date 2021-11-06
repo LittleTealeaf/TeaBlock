@@ -29,7 +29,7 @@ public class App extends JFrame {
 
         addKeyListener(new Keyboard());
         addFocusListener(new Keyboard());
-        addMouseMotionListener(screenManager);
+        addMouseListener(screenManager);
         addMouseMotionListener(screenManager);
 
 
