@@ -22,7 +22,7 @@ public class MenuOption extends Text implements Drawable, Hitbox {
     public MenuOption(String text, Font font, Color color, Color colorSelected, Point position) {
         super(text, font, color, position);
         this.colorSelected = colorSelected;
-        neighbors = new HashMap<Direction, MenuOption>();
+        neighbors = new HashMap<>();
     }
 
     @Override
@@ -46,8 +46,15 @@ public class MenuOption extends Text implements Drawable, Hitbox {
         this.colorSelected = colorSelected;
     }
 
-    public void setNeighborItem(MenuOption menuOption, Direction direction) {
+    public void selectNeighbor(Direction direction) {
+        if(selected) {
+            setSelected(false);
+            neighbors.getOrDefault(direction,this).setSelected(true);
+        }
+    }
 
+    public void setNeighborItem(MenuOption menuOption, Direction direction) {
+        neighbors.put(direction,menuOption);
     }
 
     public Rectangle2D getBounds() {
