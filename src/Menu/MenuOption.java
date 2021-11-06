@@ -49,6 +49,10 @@ public class MenuOption extends Text implements Drawable {
         return bounds != null && bounds.contains(p);
     }
 
+    public void setNeighborItem(MenuOption menuOption, Direction direction) {
+
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

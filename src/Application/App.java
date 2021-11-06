@@ -5,10 +5,9 @@ import Screen.ScreenManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.*;
 
-public class App extends JFrame {
+public class App extends JFrame implements MouseMotionListener, MouseListener {
 
     public static App instance;
     public static Config config;
@@ -28,14 +27,13 @@ public class App extends JFrame {
         setMinimumSize(GAME_DIMENSIONS);
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        addKeyListener(Keyboard.getKeyListener());
-        addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                //Clears keys to keep persistent key presses
-                Keyboard.clearKeys();
-            }
-        });
+
+        addKeyListener(new Keyboard());
+        addFocusListener(new Keyboard());
+        addMouseMotionListener(this);
+        addMouseMotionListener(this);
+
+
         createThreads();
     }
 
@@ -65,4 +63,36 @@ public class App extends JFrame {
         screenManager.paintComponent(g);
     }
 
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    public void mouseMoved(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

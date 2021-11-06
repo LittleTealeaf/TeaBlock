@@ -7,9 +7,11 @@ import Engine.Updatable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.Stack;
 
-public class ScreenManager extends JPanel implements Drawable, Updatable, Clickable {
+public class ScreenManager extends JPanel implements Drawable, Updatable, MouseListener, MouseMotionListener {
 
     private Stack<Screen> screenStack;
     //References of static screens
@@ -29,6 +31,26 @@ public class ScreenManager extends JPanel implements Drawable, Updatable, Clicka
 
     public void mouseClicked(MouseEvent e) {
         getScreen().mouseClicked(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        getScreen().mousePressed(e);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        getScreen().mouseReleased(e);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        getScreen().mouseEntered(e);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        getScreen().mouseExited(e);
     }
 
     private void resetStack() {
@@ -53,5 +75,15 @@ public class ScreenManager extends JPanel implements Drawable, Updatable, Clicka
             }
         }
         screenStack.push(screen);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        getScreen().mouseDragged(e);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        getScreen().mouseMoved(e);
     }
 }

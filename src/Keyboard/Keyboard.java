@@ -1,15 +1,10 @@
 package Keyboard;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.Collections;
+import java.awt.event.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Keyboard {
-
-    private static final KeyListener keyListener;
+public class Keyboard implements FocusListener, KeyListener {
 
     private static final Set<Integer> keysDown;
 
@@ -21,23 +16,7 @@ public class Keyboard {
         CTRL = 17;
         ALT = 18;
 
-        keyListener = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                keysDown.add(e.getKeyCode());
-                System.out.println(keysDown);
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                keysDown.remove(e.getKeyCode());
-            }
-        };
         keysDown = new HashSet<>();
-    }
-
-    public static KeyListener getKeyListener() {
-        return keyListener;
     }
 
 
@@ -85,5 +64,32 @@ public class Keyboard {
             }
         }
         return binds;
+    }
+
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        keysDown.add(e.getKeyCode());
+        System.out.println(keysDown);
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        keysDown.remove(e.getKeyCode());
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        clearKeys();
     }
 }

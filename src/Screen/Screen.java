@@ -1,17 +1,18 @@
 package Screen;
 
-import Engine.Clickable;
 import Engine.Drawable;
 import Engine.Updatable;
 import Application.App;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class Screen implements Clickable, Drawable, Updatable {
+public abstract class Screen implements MouseMotionListener, MouseListener, Drawable, Updatable {
 
     protected List<Drawable> drawables;
     protected Color backgroundColor;
@@ -20,18 +21,11 @@ public abstract class Screen implements Clickable, Drawable, Updatable {
         drawables = new ArrayList<>();
     }
 
-
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    private int i = 0;
-
-
+    @Override
     public void paintComponent(Graphics g) {
         if(backgroundColor != null) {
             g.setColor(backgroundColor);
-            g.fillRect(i, i, App.instance.getWidth(), App.instance.getHeight());
+            g.fillRect(0, 0, App.instance.getWidth(), App.instance.getHeight());
         }
         for(Drawable drawable : drawables) {
             drawable.paintComponent(g);
@@ -39,7 +33,43 @@ public abstract class Screen implements Clickable, Drawable, Updatable {
     }
 
 
+    @Override
     public void update() {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }
