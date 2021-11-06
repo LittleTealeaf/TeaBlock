@@ -43,4 +43,16 @@ public class ColoredFont extends Font {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public ColoredFont deriveFont(float size) {
+        return new ColoredFont(super.deriveFont(size),color);
+    }
+
+    public ColoredFont deriveFont(int style) {
+        return new ColoredFont(super.deriveFont(style),color);
+    }
+
+    public ColoredFont deriveFont(int style, float size) {
+        return new ColoredFont(super.deriveFont(style, size),color);
+    }
 }
