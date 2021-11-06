@@ -1,6 +1,6 @@
 package Keyboard;
 
-import Game.Application;
+import Application.Application;
 import Util.StringFunctions;
 
 public enum KeyAction {

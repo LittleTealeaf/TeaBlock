@@ -25,7 +25,6 @@ public class ScreenManager extends JPanel implements Drawable, Updatable, Clicka
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         getScreen().paintComponent(g);
-
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -44,4 +43,15 @@ public class ScreenManager extends JPanel implements Drawable, Updatable, Clicka
         return screenStack.peek();
     }
 
+    public void setScreen(Screen screen) {
+        for(int i = 0; i < screenStack.size(); i++) {
+            if (screenStack.get(i).getClass() == screen.getClass()) {
+                while(screenStack.peek() != screenStack.get(i)) {
+                    screenStack.pop();
+                }
+                return;
+            }
+        }
+        screenStack.push(screen);
+    }
 }
