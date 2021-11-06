@@ -75,7 +75,6 @@ public class Keyboard implements FocusListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         keysDown.add(e.getKeyCode());
-        System.out.println(keysDown);
     }
 
     @Override

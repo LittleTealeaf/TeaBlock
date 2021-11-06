@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class App extends JFrame implements MouseMotionListener, MouseListener {
+public class App extends JFrame {
 
     public static App instance;
     public static Config config;
@@ -30,8 +30,8 @@ public class App extends JFrame implements MouseMotionListener, MouseListener {
 
         addKeyListener(new Keyboard());
         addFocusListener(new Keyboard());
-        addMouseMotionListener(this);
-        addMouseMotionListener(this);
+        addMouseMotionListener(screenManager);
+        addMouseMotionListener(screenManager);
 
 
         createThreads();
@@ -56,43 +56,5 @@ public class App extends JFrame implements MouseMotionListener, MouseListener {
 
     public static void main(String... args) {
         instance = new App();
-    }
-
-    private void paintComponent(Graphics g) {
-        super.paintComponents(g);
-        screenManager.paintComponent(g);
-    }
-
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    public void mouseMoved(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }
