@@ -1,6 +1,6 @@
 package Menu;
 
-import Engine.Drawable;
+import Util.Drawable;
 import Screen.Screen;
 import java.awt.event.MouseEvent;
 
@@ -51,10 +51,10 @@ public class Menu extends Screen {
         }
         menuOptions = new MenuOption[count];
         int ind = 0;
-        for(int i = 0; i < grid.length; i++) {
-            for(int j = 0; j < grid.length; j++) {
-                if(grid[i][j] != null) {
-                    menuOptions[ind++] = grid[i][j];
+        for (MenuOption[] options : grid) {
+            for (int j = 0; j < grid.length; j++) {
+                if (options[j] != null) {
+                    menuOptions[ind++] = options[j];
                 }
             }
         }

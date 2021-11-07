@@ -1,7 +1,7 @@
 package Menu;
 
-import Engine.Drawable;
-import Engine.Hitbox;
+import Util.Drawable;
+import Game.Hitbox;
 import UI.Text;
 
 import java.awt.*;

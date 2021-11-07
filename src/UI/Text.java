@@ -1,6 +1,6 @@
 package UI;
 
-import Engine.Drawable;
+import Util.Drawable;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;

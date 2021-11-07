@@ -1,7 +1,7 @@
 package Screen;
 
-import Engine.Drawable;
-import Engine.Updatable;
+import Util.Drawable;
+import Util.Updatable;
 import Application.App;
 
 import java.awt.*;
