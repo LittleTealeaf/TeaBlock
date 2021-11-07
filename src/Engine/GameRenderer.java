@@ -1,5 +1,11 @@
 package Engine;
 
-public class GameRenderer {
+import Screen.Screen;
+import World.World;
 
+public class GameRenderer extends Screen {
+
+    public GameRenderer(World world) {
+
+    }
 }
