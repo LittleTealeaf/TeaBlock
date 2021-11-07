@@ -52,9 +52,9 @@ public class Menu extends Screen {
         menuOptions = new MenuOption[count];
         int ind = 0;
         for (MenuOption[] options : grid) {
-            for (int j = 0; j < grid.length; j++) {
-                if (options[j] != null) {
-                    menuOptions[ind++] = options[j];
+            for(MenuOption option : options) {
+                if(option != null) {
+                    menuOptions[ind++] = option;
                 }
             }
         }
