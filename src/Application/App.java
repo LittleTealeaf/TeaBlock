@@ -5,6 +5,9 @@ import Screen.ScreenManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
 
 public class App extends JFrame {
 
@@ -53,7 +56,7 @@ public class App extends JFrame {
         ticks.start();
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) throws IOException {
         instance = new App();
     }
 }
