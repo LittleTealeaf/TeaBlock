@@ -17,7 +17,8 @@ public class Constants {
             return font;
         } catch(IOException|FontFormatException exception) {
             exception.printStackTrace();
-            //default
+
+            //Set default font to Times New Roman
             return new Font("Times New Roman",Font.PLAIN,10);
         }
     }
