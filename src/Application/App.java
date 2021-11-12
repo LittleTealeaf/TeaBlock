@@ -2,6 +2,7 @@ package Application;
 
 import Keyboard.Keyboard;
 import Screen.ScreenManager;
+import World.WorldReader;
 
 import javax.swing.*;
 import java.awt.*;
