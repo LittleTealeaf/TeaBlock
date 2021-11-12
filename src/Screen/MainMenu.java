@@ -17,7 +17,7 @@ public class MainMenu extends Menu {
 
         Color selected = new Color(236, 39, 6);
 
-        drawables.add(new Text("TeaCraft", Constants.FONT_MA.deriveFont(70f), option) {
+        drawables.add(new Text("TeaCraft", Constants.FONT_ME.deriveFont(70f), option) {
            public Point getPosition() {
                return new Point(App.instance.getWidth() / 2, App.instance.getHeight()/ 5);
            }
@@ -26,9 +26,7 @@ public class MainMenu extends Menu {
 
         MenuOption[][] menuOptions = new MenuOption[][] {
                 {
-                        new MenuOption("Play", Constants.FONT_MA.deriveFont(30f), option, selected, () -> {
-                            System.out.println("Play Clicked");
-                        }) {
+                        new MenuOption("Play", Constants.FONT_ME.deriveFont(30f), option, selected, () -> System.out.println("Play Clicked")) {
                             public Point getPosition() {
                                 return new Point(
                                         App.instance.getWidth() / 2 - 200, App.instance.getHeight() / 2 - 100
