@@ -1,5 +1,6 @@
 package Application;
 
+@Deprecated
 public abstract class ThreadClock extends Thread {
 
     private long wait;
