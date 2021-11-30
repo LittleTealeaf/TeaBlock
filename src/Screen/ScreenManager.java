@@ -1,7 +1,7 @@
 package Screen;
 
-import Util.Drawable;
-import Util.Updatable;
+import Util.DrawableOld;
+import Util.UpdatableOld;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Stack;
 
-public class ScreenManager extends JPanel implements Drawable, Updatable, MouseListener, MouseMotionListener {
+public class ScreenManager extends JPanel implements DrawableOld, UpdatableOld, MouseListener, MouseMotionListener {
 
     private Stack<Screen> screenStack;
     //References of static screens
@@ -54,7 +54,7 @@ public class ScreenManager extends JPanel implements Drawable, Updatable, MouseL
 
     private void resetStack() {
         screenStack.clear();
-        screenStack.push(new MainMenu());
+        screenStack.push(new MainMenuOld());
     }
 
     public Screen getScreen() {

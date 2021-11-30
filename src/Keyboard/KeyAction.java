@@ -1,23 +1,53 @@
 package Keyboard;
 
-import Application.App;
-import Util.StringFunctions;
+import java.util.*;
 
+/**
+ * List of registered key actions and their respective default key-binds
+ */
 public enum KeyAction {
-    MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, JUMP, INVENTORY, HOTBAR_01, HOTBAR_02, HOTBAR_03, HOTBAR_04, HOTBAR_05, HOTBAR_06, HOTBAR_07,
-    HOTBAR_08, HOTBAR_09, HOTBAR_00,HOTBAR_11,HOTBAR_12,HOTBAR_13,HOTBAR_14,HOTBAR_15,HOTBAR_16,HOTBAR_17,HOTBAR_18,HOTBAR_19,HOTBAR_10;
+    MOVE_LEFT(new KeyBind(65, 37)),
+    MOVE_RIGHT(new KeyBind(68, 39)),
+    MOVE_UP(new KeyBind(87, 38)),
+    MOVE_DOWN(new KeyBind(83, 40));
 
-    private String string;
+    private List<KeyBind> keyBinds;
 
     KeyAction() {
-        string = StringFunctions.enumString(super.toString());
+        keyBinds = new ArrayList<>();
     }
 
-    public String toString() {
-        return string;
+    KeyAction(KeyBind... keyBinds) {
+        this.keyBinds = Arrays.asList(keyBinds);
     }
 
     public boolean isDown() {
-        return Keyboard.isKeyBindsDown(App.config.getBinds(this));
+        for(KeyBind keyBind : keyBinds) {
+            if(keyBind.isDown()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static class SerializableKeybinding {
+
+        private Map<KeyAction,List<KeyBind>> map;
+
+        public SerializableKeybinding() {
+            map = new HashMap<>();
+            for(KeyAction keyAction : values()) {
+                if(keyAction.keyBinds != null) {
+                    map.put(keyAction,keyAction.keyBinds);
+                }
+            }
+        }
+
+        public void load() {
+            for(KeyAction keyAction : values()) {
+                keyAction.keyBinds = map.getOrDefault(keyAction,new ArrayList<>());
+            }
+        }
+
     }
 }

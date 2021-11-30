@@ -1,22 +1,23 @@
 package UI;
 
-import Util.Drawable;
+import Util.DrawableOld;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class Text implements Drawable {
+@Deprecated
+public class TextOld implements DrawableOld {
 
     protected String text;
     protected Point position;
     protected Font font;
     protected Color color;
 
-    public Text(String text, Font font, Color color) {
+    public TextOld(String text, Font font, Color color) {
         this(text,font,color,new Point(0,0));
     }
 
-    public Text(String text, Font font, Color color, Point position) {
+    public TextOld(String text, Font font, Color color, Point position) {
         this.text = text;
         this.position = position;
         this.color = color;

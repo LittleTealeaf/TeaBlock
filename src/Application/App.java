@@ -2,24 +2,21 @@ package Application;
 
 import Keyboard.Keyboard;
 import Screen.ScreenManager;
-import World.WorldReader;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.StringReader;
 
 public class App extends JFrame {
 
     public static App instance;
-    public static Config config;
+    public static ConfigOld configOld;
     private ThreadClock render, ticks;
     private ScreenManager screenManager;
     private static final Dimension GAME_DIMENSIONS;
 
     static {
-        config = new Config();
+        configOld = new ConfigOld();
         GAME_DIMENSIONS = new Dimension(700,700);
     }
 

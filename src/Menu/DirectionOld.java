@@ -1,5 +1,6 @@
 package Menu;
 
-public enum Direction {
+@Deprecated
+public enum DirectionOld {
     UP,DOWN,RIGHT,LEFT;
 }

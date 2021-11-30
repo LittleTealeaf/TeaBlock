@@ -5,12 +5,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class Chunk {
+@Deprecated
+public class ChunkOld {
 
     private File file;
     private int x, y;
 
-    public Chunk(File file, int x, int y) {
+    public ChunkOld(File file, int x, int y) {
         this.file = file;
         this.x = x;
         this.y = y;

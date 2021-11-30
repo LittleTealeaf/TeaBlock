@@ -1,34 +1,35 @@
 package Menu;
 
-import Util.Drawable;
-import Engine.Hitbox;
-import UI.Text;
+import Util.DrawableOld;
+import Engine.HitboxOld;
+import UI.TextOld;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 
-public class MenuOption extends Text implements Drawable, Hitbox {
+@Deprecated
+public class MenuOptionOld extends TextOld implements DrawableOld, HitboxOld {
 
     private boolean selected = false;
     private Color colorSelected;
     private Rectangle2D bounds;
-    private HashMap<Direction,MenuOption> neighbors;
+    private HashMap<DirectionOld, MenuOptionOld> neighbors;
     private ClickAction action;
 
-    public MenuOption(String text, Font font, Color color, Color colorSelected) {
+    public MenuOptionOld(String text, Font font, Color color, Color colorSelected) {
         this(text,font,color,colorSelected,new Point(0,0));
     }
 
-    public MenuOption(String text, Font font, Color color, Color colorSelected, ClickAction action) {
+    public MenuOptionOld(String text, Font font, Color color, Color colorSelected, ClickAction action) {
         this(text,font,color,colorSelected,new Point(0,0),action);
     }
 
-    public MenuOption(String text, Font font, Color color, Color colorSelected, Point position) {
+    public MenuOptionOld(String text, Font font, Color color, Color colorSelected, Point position) {
         this(text,font,color,colorSelected,position,null);
     }
 
-    public MenuOption(String text, Font font, Color color, Color colorSelected, Point position, ClickAction action) {
+    public MenuOptionOld(String text, Font font, Color color, Color colorSelected, Point position, ClickAction action) {
         super(text, font, color, position);
         this.colorSelected = colorSelected;
         neighbors = new HashMap<>();
@@ -56,10 +57,10 @@ public class MenuOption extends Text implements Drawable, Hitbox {
         this.colorSelected = colorSelected;
     }
 
-    public void selectNeighbor(Direction direction) {
+    public void selectNeighbor(DirectionOld directionOld) {
         if(selected) {
             setSelected(false);
-            neighbors.getOrDefault(direction,this).setSelected(true);
+            neighbors.getOrDefault(directionOld, this).setSelected(true);
         }
     }
 
@@ -69,8 +70,8 @@ public class MenuOption extends Text implements Drawable, Hitbox {
         }
     }
 
-    public void setNeighborItem(MenuOption menuOption, Direction direction) {
-        neighbors.put(direction,menuOption);
+    public void setNeighborItem(MenuOptionOld menuOptionOld, DirectionOld directionOld) {
+        neighbors.put(directionOld, menuOptionOld);
     }
 
     public Rectangle2D getBounds() {

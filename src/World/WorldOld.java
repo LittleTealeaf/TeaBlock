@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 
-public class World {
+@Deprecated
+public class WorldOld {
 
     /*
     Notes:
@@ -17,13 +18,13 @@ public class World {
 
     private long seed;
 
-    private transient List<Chunk> loadedChunks;
+    private transient List<ChunkOld> loadedChunks;
 
-    public World() {
+    public WorldOld() {
         this(new Random().nextLong());
     }
 
-    public World(long seed) {
+    public WorldOld(long seed) {
         this.seed = seed;
         loadedChunks = new ArrayList<>();
     }

@@ -1,18 +1,19 @@
 package Menu;
 
-import Util.Drawable;
+import Util.DrawableOld;
 import Screen.Screen;
 import java.awt.event.MouseEvent;
 
-public class Menu extends Screen {
+@Deprecated
+public class MenuOld extends Screen {
 
-    private MenuOption[] menuOptions;
+    private MenuOptionOld[] menuOptionOlds;
 
-    public Menu() {
+    public MenuOld() {
         super();
     }
 
-    protected void setMenuItems(MenuOption[][] grid) {
+    protected void setMenuItems(MenuOptionOld[][] grid) {
         int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -21,46 +22,46 @@ public class Menu extends Screen {
                     //find upper neighbor
                     for (int k = i - 1; k >= 0; k--) {
                         if (j < grid[k].length && grid[k][j] != null) {
-                            grid[i][j].setNeighborItem(grid[k][j], Direction.UP);
+                            grid[i][j].setNeighborItem(grid[k][j], DirectionOld.UP);
                             break;
                         }
                     }
                     //Find lower neighbor
                     for (int k = i + 1; k < grid.length; k++) {
                         if (j < grid[k].length && grid[k][j] != null) {
-                            grid[i][j].setNeighborItem(grid[k][j], Direction.DOWN);
+                            grid[i][j].setNeighborItem(grid[k][j], DirectionOld.DOWN);
                             break;
                         }
                     }
                     //Find left neighbor
                     for (int k = j - 1; k >= 0; k--) {
                         if (grid[i][k] != null) {
-                            grid[i][j].setNeighborItem(grid[i][k], Direction.LEFT);
+                            grid[i][j].setNeighborItem(grid[i][k], DirectionOld.LEFT);
                             break;
                         }
                     }
                     //Find right neighbor
                     for (int k = j + 1; k < grid[i].length; k++) {
                         if (grid[i][k] != null) {
-                            grid[i][j].setNeighborItem(grid[i][k], Direction.RIGHT);
+                            grid[i][j].setNeighborItem(grid[i][k], DirectionOld.RIGHT);
                             break;
                         }
                     }
                 }
             }
         }
-        menuOptions = new MenuOption[count];
+        menuOptionOlds = new MenuOptionOld[count];
         int ind = 0;
-        for (MenuOption[] options : grid) {
-            for(MenuOption option : options) {
+        for (MenuOptionOld[] options : grid) {
+            for(MenuOptionOld option : options) {
                 if(option != null) {
-                    menuOptions[ind++] = option;
+                    menuOptionOlds[ind++] = option;
                 }
             }
         }
-        drawables.add(g -> {
-            for(Drawable drawable : menuOptions) {
-                drawable.paintComponent(g);
+        drawableOlds.add(g -> {
+            for(DrawableOld drawableOld : menuOptionOlds) {
+                drawableOld.paintComponent(g);
             }
         });
     }
@@ -68,9 +69,9 @@ public class Menu extends Screen {
     @Override
     public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
-        for(MenuOption menuOption : menuOptions) {
-            if(menuOption.getBounds().contains(e.getPoint())) {
-                menuOption.click();
+        for(MenuOptionOld menuOptionOld : menuOptionOlds) {
+            if(menuOptionOld.getBounds().contains(e.getPoint())) {
+                menuOptionOld.click();
             }
         }
     }
@@ -81,9 +82,9 @@ public class Menu extends Screen {
         mouseMoved(e);
     }
 
-    public void setSelected(MenuOption option) {
-        for(MenuOption menuOption : menuOptions) {
-            menuOption.setSelected(menuOption == option);
+    public void setSelected(MenuOptionOld option) {
+        for(MenuOptionOld menuOptionOld : menuOptionOlds) {
+            menuOptionOld.setSelected(menuOptionOld == option);
         }
     }
 
@@ -91,9 +92,9 @@ public class Menu extends Screen {
     public void mouseMoved(MouseEvent e) {
         super.mouseMoved(e);
         try {
-            for(MenuOption menuOption : menuOptions) {
-                if(menuOption.getBounds().contains(e.getPoint())) {
-                    setSelected(menuOption);
+            for(MenuOptionOld menuOptionOld : menuOptionOlds) {
+                if(menuOptionOld.getBounds().contains(e.getPoint())) {
+                    setSelected(menuOptionOld);
                 }
             }
         } catch(Exception exception) {

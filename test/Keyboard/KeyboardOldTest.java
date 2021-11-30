@@ -1,15 +1,11 @@
 package Keyboard;
 
 
-import TestUtil.RandomGenerator;
-import junit.framework.TestCase;
 import org.junit.Test;
-
-import java.util.Random;
 
 import static org.junit.Assert.*;
 
-public class KeyboardTest {
+public class KeyboardOldTest {
 
     @Test
     public void newBindSingle() {
@@ -18,7 +14,7 @@ public class KeyboardTest {
             for(int i = 0; i < keys.length; i++) {
                 keys[i] = i;
             }
-            int[][] keyBinds = Keyboard.newBindSingle(keys);
+            int[][] keyBinds = KeyboardOld.newBindSingle(keys);
             for(int i = 0; i < keys.length; i++) {
                 assertEquals(keys[i],keyBinds[i][0]);
             }
@@ -37,7 +33,7 @@ public class KeyboardTest {
                 for(int i = 0; i < keyCount; i++) {
                     keys[i] = i + metaCount;
                 }
-                int[][] binds = Keyboard.newBindMetas(metas,keys);
+                int[][] binds = KeyboardOld.newBindMetas(metas, keys);
                 for(int i = 0; i < keyCount; i++) {
                     for(int j = 0; j < metaCount; j++) {
                         assertEquals(metas[j],binds[i][j]);

@@ -1,7 +1,8 @@
 package UI;
 
 
-public interface Scaler {
+@Deprecated
+public interface ScalerOld {
 
     int[] scale(int width, int height);
 }

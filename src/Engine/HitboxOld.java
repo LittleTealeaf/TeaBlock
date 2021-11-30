@@ -2,6 +2,7 @@ package Engine;
 
 import java.awt.geom.Rectangle2D;
 
-public interface Hitbox {
+@Deprecated
+public interface HitboxOld {
     Rectangle2D getBounds();
 }

@@ -1,5 +1,6 @@
 package Block;
 
-public enum Blocks {
+@Deprecated
+public enum BlocksOld {
     AIR, DIRT, GRASS, STONE;
 }

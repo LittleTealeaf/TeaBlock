@@ -1,4 +1,4 @@
-package Util;
+package Interfaces;
 
 public interface Updatable {
     void update();

@@ -2,6 +2,7 @@ package Util;
 
 import java.awt.*;
 
-public interface Drawable {
+@Deprecated
+public interface DrawableOld {
     void paintComponent(Graphics g);
 }
