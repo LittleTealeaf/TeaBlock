@@ -30,9 +30,4 @@ public class BoundedText extends Text implements Bounds {
     public boolean containsPoint(Vector point) {
         return text_height != null && text_width != null && withinBounds(getPosition(), getDimension(), point);
     }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-    }
 }

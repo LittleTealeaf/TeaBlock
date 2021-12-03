@@ -59,7 +59,7 @@ public class MenuOld extends Screen {
                 }
             }
         }
-        drawableOlds.add(g -> {
+        drawables.add(g -> {
             for(DrawableOld drawableOld : menuOptionOlds) {
                 drawableOld.paintComponent(g);
             }
