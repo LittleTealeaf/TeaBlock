@@ -2,5 +2,5 @@ package Menu;
 
 @Deprecated
 public enum DirectionOld {
-    UP,DOWN,RIGHT,LEFT;
+    UP,DOWN,RIGHT,LEFT
 }

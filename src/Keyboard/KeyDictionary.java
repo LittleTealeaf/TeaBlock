@@ -3,7 +3,7 @@ package Keyboard;
 public enum KeyDictionary {
     CTRL(0),ALT(1),SHIFT(2);
 
-    private int keyCode;
+    private final int keyCode;
 
     KeyDictionary(int keyCode) {
         this.keyCode = keyCode;

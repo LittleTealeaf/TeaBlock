@@ -1,5 +1,6 @@
 package Screen;
 
+import Interfaces.Drawable;
 import Util.DrawableOld;
 import Util.UpdatableOld;
 import Application.App;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public abstract class Screen implements MouseMotionListener, MouseListener, DrawableOld, UpdatableOld {
 
-    protected List<DrawableOld> drawableOlds;
+    protected List<Drawable> drawableOlds;
     protected Color backgroundColor;
 
     public Screen() {
@@ -27,8 +28,8 @@ public abstract class Screen implements MouseMotionListener, MouseListener, Draw
             g.setColor(backgroundColor);
             g.fillRect(0, 0, App.instance.getWidth(), App.instance.getHeight());
         }
-        for(DrawableOld drawableOld : drawableOlds) {
-            drawableOld.paintComponent(g);
+        for(Drawable drawable : drawableOlds) {
+            drawable.paintComponent(g);
         }
     }
 

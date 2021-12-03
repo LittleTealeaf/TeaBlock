@@ -16,9 +16,9 @@ public class WorldOld {
      */
 
 
-    private long seed;
+    private final long seed;
 
-    private transient List<ChunkOld> loadedChunks;
+    private final transient List<ChunkOld> loadedChunks;
 
     public WorldOld() {
         this(new Random().nextLong());

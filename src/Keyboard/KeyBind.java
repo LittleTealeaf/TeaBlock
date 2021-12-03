@@ -2,7 +2,7 @@ package Keyboard;
 
 public class KeyBind {
 
-    private Integer[] keys;
+    private final Integer[] keys;
 
     public KeyBind(KeyDictionary... keys) {
         this(KeyDictionary.toKeyCodes(keys));

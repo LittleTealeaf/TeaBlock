@@ -8,9 +8,11 @@ import java.util.Map;
 
 @Deprecated
 public class ConfigOld {
-    private int width, height, framesPerSecond;
+    private final int width;
+    private final int height;
+    private final int framesPerSecond;
 
-    private Map<KeyActionOld, int[][]> keyBinds;
+    private final Map<KeyActionOld, int[][]> keyBinds;
 
 
     public ConfigOld() {

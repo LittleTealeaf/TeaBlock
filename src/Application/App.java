@@ -2,6 +2,7 @@ package Application;
 
 import Keyboard.Keyboard;
 import Screen.ScreenManager;
+import Util.Vector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,7 @@ public class App extends JFrame {
     public static App instance;
     public static ConfigOld configOld;
     private ThreadClock render, ticks;
-    private ScreenManager screenManager;
+    private final ScreenManager screenManager;
     private static final Dimension GAME_DIMENSIONS;
 
     static {

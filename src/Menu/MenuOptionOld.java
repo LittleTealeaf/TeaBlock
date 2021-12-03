@@ -14,8 +14,8 @@ public class MenuOptionOld extends TextOld implements DrawableOld, HitboxOld {
     private boolean selected = false;
     private Color colorSelected;
     private Rectangle2D bounds;
-    private HashMap<DirectionOld, MenuOptionOld> neighbors;
-    private ClickAction action;
+    private final HashMap<DirectionOld, MenuOptionOld> neighbors;
+    private final ClickAction action;
 
     public MenuOptionOld(String text, Font font, Color color, Color colorSelected) {
         this(text,font,color,colorSelected,new Point(0,0));

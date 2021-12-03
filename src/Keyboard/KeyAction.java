@@ -32,7 +32,7 @@ public enum KeyAction {
 
     public static class SerializableKeybinding {
 
-        private Map<KeyAction,List<KeyBind>> map;
+        private final Map<KeyAction,List<KeyBind>> map;
 
         public SerializableKeybinding() {
             map = new HashMap<>();

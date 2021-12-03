@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Keyboard implements FocusListener, KeyListener {
 
-    private static Set<Integer> keysDown;
+    private static final Set<Integer> keysDown;
 
     static {
         keysDown = new HashSet<>();

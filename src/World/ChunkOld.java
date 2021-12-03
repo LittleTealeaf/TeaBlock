@@ -8,8 +8,9 @@ import java.io.FileReader;
 @Deprecated
 public class ChunkOld {
 
-    private File file;
-    private int x, y;
+    private final File file;
+    private final int x;
+    private final int y;
 
     public ChunkOld(File file, int x, int y) {
         this.file = file;
